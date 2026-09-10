@@ -142,3 +142,7 @@ website/
 ### 3. Admin Experience
 * **Capability Gap Intelligence:** Pair organizational skill demands (Radar, NWP, Python, Satellite) with top matched trainers, displaying academic qualifications and cohort assignment controls.
 
+team member and their roles:
+Aayush singh and vaibhav working on technical parts of problem Solution(websites)
+disha and ansh working on ppt
+tanish and tejas working on content/research
