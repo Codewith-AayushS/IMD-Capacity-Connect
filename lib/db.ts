@@ -26,7 +26,7 @@ export async function connectToDatabase() {
   if (!cached?.promise) {
     const opts = {
       bufferCommands: false,
-      serverSelectionTimeoutMS: 2000, // Quick timeout to fallback if MongoDB server isn't running locally
+      serverSelectionTimeoutMS: 500, // Quick 500ms timeout for instant fallback if MongoDB is unreachable
     }
 
     cached!.promise = mongoose.connect(MONGODB_URI, opts).then((m) => {

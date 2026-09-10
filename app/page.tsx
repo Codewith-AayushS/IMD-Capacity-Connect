@@ -270,11 +270,11 @@ export default function Page() {
     overview: 'Entity Overview'
   } as Record<string, string>)[screen] || 'Dashboard', [screen, role])
 
-  const nav = role === 'trainee'
+  const nav: [string, string, React.ElementType][] = role === 'trainee'
     ? [['dashboard', 'Dashboard', LayoutDashboard], ['profile', 'My Profile', UserRound], ['roles', 'Target Role', Target], ['gap', 'Skill Gap Analysis', BarChart3], ['path', 'Learning Path', TrendingUp], ['course', 'My Course', BookOpen]]
     : role === 'trainer'
-    ? [['dashboard', 'Overview', LayoutDashboard], ['expertise', 'Expertise Profile', Award], ['assessments', 'Assessments', ClipboardCheck], ['performance', 'Trainee Performance', Users], ['matching', 'Trainer Matching', Sparkles]]
-    : [['dashboard', 'Admin Dashboard', LayoutDashboard], ['overview', 'Entity Overview', Layers3]]
+      ? [['dashboard', 'Overview', LayoutDashboard], ['expertise', 'Expertise Profile', Award], ['assessments', 'Assessments', ClipboardCheck], ['performance', 'Trainee Performance', Users], ['matching', 'Trainer Matching', Sparkles]]
+      : [['dashboard', 'Admin Dashboard', LayoutDashboard], ['overview', 'Entity Overview', Layers3]]
 
   function go(next: string) {
     setScreen(next)
@@ -991,10 +991,10 @@ function TraineeDashboard({
                 {targetRole === 'Advanced Weather Forecaster'
                   ? 'Requires Level 4 proficiency in Radar Meteorology & NWP modeling.'
                   : targetRole === 'Weather Forecaster'
-                  ? 'Focuses on operational forecasting and daily synoptic analysis.'
-                  : targetRole === 'Meteorological Data Analyst'
-                  ? 'Focuses on Python processing, satellite imagery, and climate analytics.'
-                  : 'Specializes in radar calibration and observation sensor networks.'}
+                    ? 'Focuses on operational forecasting and daily synoptic analysis.'
+                    : targetRole === 'Meteorological Data Analyst'
+                      ? 'Focuses on Python processing, satellite imagery, and climate analytics.'
+                      : 'Specializes in radar calibration and observation sensor networks.'}
               </p>
             </div>
           </div>
@@ -1574,7 +1574,7 @@ function TrainerDashboard({
               </div>
               <h4 className="mt-3 text-base font-bold text-slate-900 group-hover:text-teal-900">{c.title}</h4>
               <p className="mt-1 text-xs text-slate-500">{c.modules.length} Modules / Lectures Attached</p>
-              
+
               <div className="mt-4 border-t border-slate-200/60 pt-3 flex items-center justify-between text-xs text-slate-500">
                 <span>Duration: {c.duration}</span>
                 <span className="font-semibold text-teal-700">{c.status}</span>
@@ -1955,15 +1955,15 @@ function Overview({ courseList }: { courseList: CourseItem[] }) {
           <tbody className="divide-y divide-slate-100">
             {tab === 'Trainees'
               ? trainees.map((x, i) => (
-                  <tr key={x}>
-                    <td className="px-5 py-4 font-semibold">{x}</td>
-                    <td className="px-5 py-4 text-slate-500">{['New Delhi', 'Pune', 'Chennai', 'Guwahati', 'Mumbai'][i]}</td>
-                    <td className="px-5 py-4 text-slate-700">{i % 2 === 0 ? 'Advanced Weather Forecaster' : 'Weather Forecaster'}</td>
-                    <td className="px-5 py-4"><Progress value={[58, 76, 91, 35, 68][i]} /></td>
-                  </tr>
-                ))
+                <tr key={x}>
+                  <td className="px-5 py-4 font-semibold">{x}</td>
+                  <td className="px-5 py-4 text-slate-500">{['New Delhi', 'Pune', 'Chennai', 'Guwahati', 'Mumbai'][i]}</td>
+                  <td className="px-5 py-4 text-slate-700">{i % 2 === 0 ? 'Advanced Weather Forecaster' : 'Weather Forecaster'}</td>
+                  <td className="px-5 py-4"><Progress value={[58, 76, 91, 35, 68][i]} /></td>
+                </tr>
+              ))
               : tab === 'Trainers'
-              ? initialTrainers.map(t => (
+                ? initialTrainers.map(t => (
                   <tr key={t.name}>
                     <td className="px-5 py-4 font-semibold">{t.name}</td>
                     <td className="px-5 py-4 text-slate-500">{t.skillMatched}</td>
@@ -1971,7 +1971,7 @@ function Overview({ courseList }: { courseList: CourseItem[] }) {
                     <td className="px-5 py-4"><Badge tone="green">{t.status}</Badge></td>
                   </tr>
                 ))
-              : courseList.map(c => (
+                : courseList.map(c => (
                   <tr key={c.id}>
                     <td className="px-5 py-4 font-semibold">{c.title}</td>
                     <td className="px-5 py-4 text-slate-500">{c.skill}</td>

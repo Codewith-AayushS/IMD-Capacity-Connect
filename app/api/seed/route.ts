@@ -65,14 +65,14 @@ export const defaultMockData = {
       skill: 'Radar Meteorology',
       duration: '4 weeks',
       progress: 58,
-      status: 'In Progress',
+      status: 'In Progress' as const,
       modules: [
-        { title: 'Radar Fundamentals', status: 'Completed' },
-        { title: 'Reading Reflectivity Products', status: 'Completed' },
-        { title: 'Velocity & Motion', status: 'In Progress' },
-        { title: 'Precipitation Estimation', status: 'Locked' },
-        { title: 'Operational Case Studies', status: 'Locked' },
-        { title: 'Final Assessment', status: 'Locked' }
+        { title: 'Radar Fundamentals', status: 'Completed' as const },
+        { title: 'Reading Reflectivity Products', status: 'Completed' as const },
+        { title: 'Velocity & Motion', status: 'In Progress' as const },
+        { title: 'Precipitation Estimation', status: 'Locked' as const },
+        { title: 'Operational Case Studies', status: 'Locked' as const },
+        { title: 'Final Assessment', status: 'Locked' as const }
       ]
     },
     {
@@ -80,11 +80,11 @@ export const defaultMockData = {
       skill: 'Radar Meteorology',
       duration: '3 weeks',
       progress: 0,
-      status: 'Locked',
+      status: 'Locked' as const,
       modules: [
-        { title: 'Doppler Shift Principles', status: 'Locked' },
-        { title: 'VAD Wind Profiling', status: 'Locked' },
-        { title: 'Severe Storm Signatures', status: 'Locked' }
+        { title: 'Doppler Shift Principles', status: 'Locked' as const },
+        { title: 'VAD Wind Profiling', status: 'Locked' as const },
+        { title: 'Severe Storm Signatures', status: 'Locked' as const }
       ]
     },
     {
@@ -92,10 +92,10 @@ export const defaultMockData = {
       skill: 'Numerical Weather Prediction',
       duration: '5 weeks',
       progress: 100,
-      status: 'Completed',
+      status: 'Completed' as const,
       modules: [
-        { title: 'Model Parameterizations', status: 'Completed' },
-        { title: 'Ensemble Forecasting', status: 'Completed' }
+        { title: 'Model Parameterizations', status: 'Completed' as const },
+        { title: 'Ensemble Forecasting', status: 'Completed' as const }
       ]
     }
   ],
@@ -103,7 +103,7 @@ export const defaultMockData = {
     {
       title: 'Radar Fundamentals & Interpretation Assessment',
       courseTitle: 'Radar Fundamentals & Interpretation',
-      status: 'Published',
+      status: 'Published' as const,
       attempts: 42,
       averageScore: 78,
       questions: [
