@@ -9,7 +9,7 @@
 # Production build output
 /build
 /dist
-/.vscode
+.vscode
 
 # Environment variables
 .env
