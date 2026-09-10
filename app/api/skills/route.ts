@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { connectToDatabase } from '@/lib/db'
-import { User } from '@/lib/models'
+import { connectToDatabase } from '@/app/lib/db'
+import { User } from '@/app/lib/models'
 import { defaultMockData } from '../seed/route'
 
 export async function GET() {

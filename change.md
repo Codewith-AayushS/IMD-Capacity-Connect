@@ -14,47 +14,47 @@ This document lists all technologies used, files created/modified, backend API e
 
 ---
 
-## 2. Backend Architecture & Files Created
+## 2. Backend Architecture & App Folder Organization
 
-### 1. `lib/db.ts`
+### 1. `app/lib/db.ts` (Moved to `app/lib/db.ts`)
 *   **Purpose:** Establishes a cached MongoDB connection using Mongoose (`connectToDatabase`).
 *   **Resilience:** Includes an automatic fallback handler. If local MongoDB server is not running, the application gracefully operates in-memory so the site remains 100% interactive without crashing.
 
-### 2. `lib/models.ts`
+### 2. `app/lib/models.ts` (Moved to `app/lib/models.ts`)
 *   **`User` Schema:** Stores trainee, trainer, and admin accounts, centers, target roles, experience, and array of competency skill levels.
 *   **`RoleRequirement` Schema:** Stores target role titles (e.g. *Advanced Weather Forecaster*) and required skill level thresholds.
 *   **`Course` Schema:** Stores courses, skill associations, duration, and module completion statuses.
 *   **`Assessment` Schema:** Stores question banks, correct answer indices, quiz attempts, and average scores.
 
-### 3. `app/api/seed/route.ts`
+### 3. `app/components/ui/` (Moved to `app/components/ui/`)
+*   **UI Components:** Base UI / Shadcn button variants and utility styles located inside `app/components/ui/button.tsx`.
+
+### 4. `app/api/seed/route.ts`
 *   **Endpoint:** `GET /api/seed`
 *   **Purpose:** Automatically populates initial data for trainees, role requirements, learning courses, applied quizzes, and trainer match profiles.
 
-### 4. `app/api/skills/route.ts`
+### 5. `app/api/skills/route.ts`
 *   **Endpoints:** `GET /api/skills`, `POST /api/skills`
 *   **Purpose:** Fetches current user competency profiles and accepts skill level promotion updates.
 
-### 5. `app/api/gap-analysis/route.ts`
+### 6. `app/api/gap-analysis/route.ts`
 *   **Endpoint:** `POST /api/gap-analysis`
 *   **Purpose:** Computes gap metrics (`gap = requiredLevel - currentLevel`) for any selected target role.
 
-### 6. `app/api/assessments/route.ts`
+### 7. `app/api/assessments/route.ts`
 *   **Endpoints:** `GET /api/assessments`, `POST /api/assessments`
 *   **Purpose:** Validates quiz answers, computes percentage score, updates attempt history, and automatically promotes trainee competency level when score >= 70%.
 
-### 7. `app/api/trainers/match/route.ts`
+### 8. `app/api/trainers/match/route.ts`
 *   **Endpoint:** `GET /api/trainers/match`
 *   **Purpose:** Calculates match percentages and recommendation rationale for trainers based on trainee skill gaps.
 
-### 8. `app/api/analytics/route.ts`
+### 9. `app/api/analytics/route.ts`
 *   **Endpoint:** `GET /api/analytics`
 *   **Purpose:** Delivers organization-wide stats, skill demand signals, and learning status distributions for the Admin Dashboard.
 
-### 9. `README.md`
-*   **Purpose:** Comprehensive step-by-step setup guide covering Node.js & NPM installation, VS Code PATH troubleshooting, MongoDB configuration, production build instructions, and feature guide.
-
-### 10. `.gitignore`
-*   **Purpose:** Standardized git ignore rules ignoring `node_modules/`, `.next/`, build outputs, `.env` secret variables, debug logs, and OS system files.
+### 10. `components.json` & Import Paths
+*   **Aliases Updated:** Configured `components.json` aliases (`@/app/components`, `@/app/lib/utils`, `@/app/components/ui`, `@/app/lib`) to point into the `app/` directory structure.
 
 ---
 

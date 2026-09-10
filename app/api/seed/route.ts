@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { connectToDatabase } from '@/lib/db'
-import { User, RoleRequirement, Course, Assessment } from '@/lib/models'
+import { connectToDatabase } from '@/app/lib/db'
+import { User, RoleRequirement, Course, Assessment } from '@/app/lib/models'
 
 export const defaultMockData = {
   traineeProfile: {
